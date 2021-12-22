@@ -1,0 +1,49 @@
+int m=0, n=0;  
+ void setup()  
+ {  
+   pinMode(A0, INPUT);  
+   pinMode(A1, INPUT);  
+   pinMode(4,OUTPUT);  
+   pinMode(5,OUTPUT);  
+   pinMode(6,OUTPUT);  
+   pinMode(7,OUTPUT);  
+   Serial.begin(9600);  
+ }  
+ void loop()   
+ {  
+   m = analogRead(A0);  
+   n = analogRead(A1);  
+   Serial.println(m);  
+   delay(100);  
+   Serial.println(n);  
+   delay(100);  
+  if(n>=375)  
+   {  
+     digitalWrite(4,HIGH);  
+     Serial.println("F");  
+   }  
+   else if(n<=320)  
+   {   
+     digitalWrite(5,HIGH);  
+     Serial.println("B");  
+   }   
+  else if(m>=375)  
+   {  
+     digitalWrite(6,HIGH);  
+     Serial.println("R");  
+   }  
+  else if(m<=315)  
+   {  
+    digitalWrite(7,HIGH);  
+    Serial.println("L");  
+   }  
+   else  
+   {  
+    digitalWrite(4, LOW);  
+    digitalWrite(5, LOW);  
+    digitalWrite(6, LOW);  
+    digitalWrite(7, LOW);  
+    Serial.println("N");  
+   }  
+   }  
+
